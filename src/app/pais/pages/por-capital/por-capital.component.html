@@ -1,1 +1,27 @@
-<p>por-capital works!</p>
+<h2>Por Capital</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+
+    <app-pais-input
+      (onEnter)="buscar( $event )"
+      placeholder="Buscar capital..."
+    ></app-pais-input>
+
+  </div>
+</div>
+
+<hr>
+
+<div *ngIf="hayError" class="alert alert-danger"> <!-- Este ngif detecta si nuestro ts ha encontrado algún error -->
+  No se encontró alguna coincidencia con la busqueda de {{termino}}
+</div>
+
+<div *ngIf=" paises.length > 0 " class="row"> <!-- Si no hay error entonces muestra la tabla -->
+  <div class="col">
+
+    <app-pais-tabla [paises]="paises"></app-pais-tabla> <!-- Con esto nos aseguramos que la inyeccion muestre la info -->
+
+  </div>
+</div>

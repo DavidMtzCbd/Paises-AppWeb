@@ -20,9 +20,9 @@ export class PorPaisComponent {
 
   ){}
 
-  buscar(){
-    console.log(this.termino);
+  buscar(termino: string){
     this.hayError = false; //detecta que no hay ningún error antes de pasar a la función
+    this.termino = termino
 
     this.paisService.buscarPais( this.termino )
     .subscribe( paises => { //Aqui sería el next
@@ -35,6 +35,10 @@ export class PorPaisComponent {
     });
 
 
+  }
+
+  sugerencias(termino: string){
+    this.hayError = false;
   }
 
 }
